@@ -19,6 +19,12 @@ schedule.scheduleJob('* * * 1-12 *', () => {
 });
 // app.use(require('./routes/customer_routes/auth'));
 app.use(require('./routes/customer_routes/auth'));
+app.use(require('./routes/customer_routes/cusidtoname'));
+app.use(require('./routes/customer_routes/notmilk'));
+app.use(require('./routes/customer_routes/date'));
+app.use(require('./routes/customer_routes/request'));
+app.use(require('./routes/customer_routes/update'));
+app.use(require('./routes/customer_routes/milkprize'));
 const port = process.env.port;
 app.listen(port, () => {
     console.log(`server is running on ${port} port`);

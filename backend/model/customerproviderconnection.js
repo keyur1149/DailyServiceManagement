@@ -9,6 +9,9 @@ const customerprovider = new mongoose.Schema({
         type: String,
         required: true,
     },
+    milkperday: {
+        type: Number,
+    },
     request: {
         type: String,
         default: false,

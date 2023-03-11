@@ -1,2 +1,0 @@
-# DailyServiceManagement
-SDP Project
