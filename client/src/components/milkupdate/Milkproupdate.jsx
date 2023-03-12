@@ -126,10 +126,9 @@ export default function  Milkproupdate() {
   return (
     <div class="main">
       <section class="signup">
-        <div>keyur</div>
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
+          
         >
           <div class="signup-content">
             <form
@@ -138,7 +137,7 @@ export default function  Milkproupdate() {
               class="signup-form"
               onSubmit={handlesignup}
             >
-              <h2 class="form-title">Create account</h2>
+              <h2 class="form-title">Update account</h2>
               <div class="form-group">
                 <input
                   type="text"
@@ -280,10 +279,7 @@ export default function  Milkproupdate() {
               <div class="form-group">{mor}   {eve}</div>
               <div class="form-group">
                 <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
+                  
                   type="submit"
                   name="submit"
                   id="submit"

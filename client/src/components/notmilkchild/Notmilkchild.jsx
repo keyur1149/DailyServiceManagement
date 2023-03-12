@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import "./notmilkchild.css"
 export default function Notmilkchild(props) {
     const [now,setnow]=useState({
         username:"",
@@ -23,8 +23,8 @@ export default function Notmilkchild(props) {
         dothis();
     },[]);
   return (
-    <div>
-        <div>{now.username}</div>
+    <div className="notmilkchild-container">
+        <div className="notmilkchild-username">{props.key} {now.username}</div>
     </div>
   )
 }

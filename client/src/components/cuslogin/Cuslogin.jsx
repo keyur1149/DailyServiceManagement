@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "./style.css";
+import "./last.css";
 // import {NavLink} from 'react-router-dom'
 export default function Cuslogin() {
   const [data, setData] = useState({
@@ -52,10 +52,9 @@ export default function Cuslogin() {
   return (
     <div class="main">
       <section class="signup">
-        <div>Customer</div>
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
+          style={{ marginBottom: "35px", marginTop: "35px" }}
         >
           <div class="signup-content">
             <form
@@ -64,7 +63,7 @@ export default function Cuslogin() {
               class="signup-form"
               onSubmit={handlesignup}
             >
-              <h2 class="form-title">Customer login</h2>
+              <h2 class="form-title">Login</h2>
               <div class="form-group">
                 <input
                   type="text"
@@ -101,10 +100,6 @@ export default function Cuslogin() {
               
               <div class="form-group">
                 <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
                   type="submit"
                   name="submit"
                   id="submit"
@@ -114,7 +109,7 @@ export default function Cuslogin() {
                 <div style={{ color: "red" }}>{mainerror}</div>
               </div>
             </form>
-            <a href="/customerregister">Sign up?</a>
+            <div>New Here ? <a href="/customerregister"> Sign Up</a></div>
           </div>
         </div>
       </section>

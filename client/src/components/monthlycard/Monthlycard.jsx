@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Onecard from '../onecard/Onecard';
 import Onedate from '../showdate/Onedate';
+import "./monthly.css"
 export default function Monthlycard() {
     const [proname,setproname]=useState();
     const [notdelivered,setnotdelivered]=useState([]);
@@ -106,12 +107,17 @@ const temp=predates.map((e)=>{
     notdelivered.includes(e)?totaldays+=0:totaldays+=1
 })
   return (
-    <div>
-        <div>Customer Name:-{JSON.parse(localStorage.getItem("user")).fname} {JSON.parse(localStorage.getItem("user")).lname}</div>
-        <div>Provider Name:- {proname}<div>Prize:-{prize}</div> <div>milkperday:- {milkperday}</div> </div>
-        <div><p>dates </p> <p>Rupees</p></div>
-        <div>{now1}</div>
-        <div>Total Rupees to pay :- {totaldays*prize*milkperday}</div>
+    <div className="monthly-card">
+      <div className="customer-name">Customer Name:-{JSON.parse(localStorage.getItem("user")).fname} {JSON.parse(localStorage.getItem("user")).lname}</div>
+      <div className="provider-name">
+        Provider Name:- {proname}
+        <div>Prize:-{prize}</div>
+        <div>milk per day:- {milkperday}</div>
+      </div>
+      <div className="card-main-body">
+        {now1}
+      </div>
+      <div className="total-rupees">Total Rupees to pay :- {totaldays*prize*milkperday}</div>
     </div>
   )
 }

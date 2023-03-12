@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Onereq from '../reqmilk/Onereq';
-
+import "./milkprovides.css";
 export default function Milkproviders() {
   const [milkman,setmilkman]=useState();
   const [milk,setmilk]=useState();
@@ -43,29 +43,25 @@ useEffect(()=>{
   ,[]);
 
   return (
-    <div>
-      How much milk you want?<br/>
-      <select onChange={chnagehowmuchmilk} name="howmuchmilk" value={howmuchmilk}>
-        <option value={0.5} defaultValue>0.5</option>
-        <option value={0.75}>0.75</option>
-        <option value={1}>1</option>
-        <option value={1.5}>1.5</option>
-        <option value={1.75}>1.75</option>
-        <option value={2}>2</option>
-        <option value={2.5}>2.5</option>
-        <option value={3}>3</option>
-        <option value={3.5}>3.5</option>
-        <option value={4}>4</option>
-        <option value={5}>5</option>
-      </select>
-      <div>{howmuchmilk}</div>
-      {/* <button onClick={now1}>click</button> */}
-      {/* <select onChange={changedon} name="milk" value={milk}>{milkman}</select> */}
-      <div>{milkman}</div>
-      <div>
-        <p>{ans}</p>
-        <p>{milk}</p>
+    <div className="milkprovider-container">
+      <div className="select-container">
+        <p className="howmuchmilk">How much milk you want?</p>
+        <select onChange={chnagehowmuchmilk} name="howmuchmilk" value={howmuchmilk}>
+          <option value={0.5} defaultValue>0.5</option>
+          <option value={0.75}>0.75</option>
+          <option value={1}>1</option>
+          <option value={1.5}>1.5</option>
+          <option value={1.75}>1.75</option>
+          <option value={2}>2</option>
+          <option value={2.5}>2.5</option>
+          <option value={3}>3</option>
+          <option value={3.5}>3.5</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+        </select>
       </div>
-    </div>
+      <div className="onereq-container">{milkman}</div>
+    </div>
+
   )
 }

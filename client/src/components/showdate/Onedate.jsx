@@ -48,22 +48,16 @@ export default function Onedate(props) {
   }
   const now=()=>{
     if(props.ischecked){
-      return <button style={{background:"red",border: "0px"}} onClick={dothis} ><AiOutlineCloseCircle style={{display: "block",width: "90px",height: "45px"}}/></button>
+      return <button className="close-btn red" onClick={dothis} ><AiOutlineCloseCircle style={{display: "block",width: "90px",height: "45px"}}/></button>
     }else if(props.ischecked1){
-      return <button style={{background:"blue",border: "0px"}} onClick={dothis1}><AiOutlineCloseCircle style={{display: "block",width: "90px",height: "45px"}}/></button>
+      return <button className="close-btn blue" onClick={dothis1}><AiOutlineCloseCircle style={{display: "block",width: "90px",height: "45px"}}/></button>
     }else{
       return 
     }
   }
   return (
-    <div style={{height:"150px",
-      width: "150px",
-      border: "0px solid #f03434",
-      margin:"15px",
-      backgroundColor:props.color}}>
+    <div className="onedate">
         <h1>{props.value}</h1>
-        {/* <h6>{props.month}</h6>
-        <h6>{props.year}</h6> */}
         <div>{now()}</div>
     </div>
   )

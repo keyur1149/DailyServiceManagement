@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import "./req.css"
 export default function Req(props) {
     const [data,setdata]=useState();
     const [ans,setans]=useState();
@@ -22,7 +22,7 @@ export default function Req(props) {
     useEffect(()=>{
         now();
         // console.log(data);
-    },[])
+    },[ans])
     const rejected=async(e)=>{
         e.preventDefault();
         const user_id=props.value;
@@ -41,6 +41,8 @@ export default function Req(props) {
         const y=await res.json();
         console.log(y);
         setans(y);
+        alert("request rejected");
+        props.pass();
     }
     const accepted= async (e)=>{
         e.preventDefault();
@@ -63,17 +65,22 @@ export default function Req(props) {
         const y=await res.json();
         console.log(y);
         setans(y);
-        
+        alert("request accpected");
+        props.pass();
     }
   return (
-    <div>
-        <div>working</div>
-        <div>{data}</div>
-        <div>
-            <button onClick={accepted}>Accept</button>
-            <button onClick={rejected}>Delice</button>
-        </div>
-        <div>{ans}</div>
+    <div className="req-container">
+        
+    <div className="user-info">
+      <img src="1.jpg" alt="User Avatar" />
+      <h3 className='username'>{data}</h3>
     </div>
+    <div className="buttons">
+      <button class="button-21" onClick={accepted}>Accept</button>
+      <button class="button-21" onClick={rejected}>Reject</button>
+    </div>
+ </div>
+
+
   )
 }

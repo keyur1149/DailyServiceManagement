@@ -109,10 +109,9 @@ useEffect(()=>{
   return (
     <div class="main">
       <section class="signup">
-        <div>Customer Update</div>
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
+         
         >
           <div class="signup-content">
             <form
@@ -205,10 +204,7 @@ useEffect(()=>{
               
               <div class="form-group">
                 <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
+                  
                   type="submit"
                   name="submit"
                   id="submit"

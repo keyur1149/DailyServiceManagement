@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./home.css"
 export default function Home() {
   const next1=async (e)=>{
     // e.preventdefault();
@@ -25,22 +25,45 @@ export default function Home() {
       window.location.href="/card"
     }
   }
+  const newsproviders=()=>{
+    window.location.href="/newsproviders";
+  }
+  const profile=()=>{
+    window.location.href="/profile";
+  }
+  const date=()=>{
+    window.location.href="/date";
+  }
 
   return (
-    <>
-    <div>
-        <button onClick={next1}>Milk</button>
+    <div className="home-container">
+    <header>
+      <h1>Welcome to Our Site</h1>
+      <p>Find the best milk and news providers in your area</p>
+      <p>Stay up-to-date on local events and happenings</p>
+      <p>Connect with your community and neighbors</p>
+    </header>
+    <div className="button-container">
+      <button className="button milk-button" onClick={next1}>
+        Find Milk Providers
+      </button>
     </div>
-    <div>
-        <a href='/newsproviders'>News</a>
+    <div className="button-container">
+      <button className="button news-button" onClick={newsproviders}>
+        Find News Providers
+      </button>
     </div>
-    <div>
-        <a href='/profile'>Update Profile</a>
+    <div className="button-container">
+      <button className="button profile-button" onClick={profile}>
+        Update Profile
+      </button>
     </div>
-    
-    <div>
-        <a href='/date'>Choose Date </a>
+    <div className="button-container">
+      <button className="button date-button" onClick={date}>
+        Choose a Date
+      </button>
     </div>
-    </>
+   </div>
+
   )
 }

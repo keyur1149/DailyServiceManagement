@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react'
-
+import "./onereq.css"
 export default function Onereq(props) {
     const [ans,setans]=useState();
     const [now,setnow]=useState();
@@ -56,10 +56,11 @@ export default function Onereq(props) {
       const tp=()=>{
       }
   return (
-    <div>
-        <div>Name:-{props.now.username}</div>
-        <div>Prize/liter:-{props.now.prize}</div>
-        <div><button onClick={now==="sendrequest"?sendrequest:tp}>{now}</button></div>
-    </div>
+    <div className="onereq">
+      <h3>Name: {props.now.username}</h3>
+      <p>Prize/liter: {props.now.prize}</p>
+      <button onClick={now==="sendrequest" ? sendrequest : tp}>{now}</button>
+    </div>
+
   )
 }

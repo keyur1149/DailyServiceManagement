@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Notmilkchild from '../notmilkchild/Notmilkchild';
+import "./notmilk.css"
 export default function Notmilk() {
     const [users,setusers]=useState([]);
   const notmilk=async ()=>{
@@ -31,8 +32,15 @@ export default function Notmilk() {
     <Notmilkchild key={index}  value={e.customer_id}/>
   )
   return (
-    <div>notmilk
-        <div>{now}</div>
+  //   <div className="notmilk-container">
+  //   <h2 className="notmilk-title">Customers Who Did Not Receive Milk Today</h2>
+  //   <div className="notmilk-child-container">
+  //     {now}
+  //   </div>
+  // </div>
+  <div className="notmilk-container">
+      <h1 className="notmilk-heading">Customers Not Received Milk</h1>
+      <div className="notmilk-list">{now}</div>
     </div>
   )
 }

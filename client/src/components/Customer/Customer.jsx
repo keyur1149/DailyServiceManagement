@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "./style.css";
+import "./last.css";
 // import {NavLink} from 'react-router-dom'
 export default function Customer() {
   const [data, setData] = useState({
@@ -164,11 +164,9 @@ export default function Customer() {
   return (
     <div class="main">
       <section class="signup">
-        <div>Customer</div>
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
-        >
+                  >
           <div class="signup-content">
             <form
               method="POST"
@@ -289,10 +287,7 @@ export default function Customer() {
               
               <div class="form-group">
                 <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
+                
                   type="submit"
                   name="submit"
                   id="submit"
