@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Onedate from "../showdate/Onedate";
-import "./datechoose.css"
+import'./datechoose.css'
 function Date_Choose(){
   const [nextdates,setnextdates]=useState([]);
   const [predates,setpredates]=useState([]);
@@ -73,17 +73,27 @@ const handleReRender = () => {
   additem(temp);
   },[])
   const now=nextdates.map((e,index)=>
-  notdelivered.includes(e)?<Onedate className="onedate" key={index} month={month} year={year}  onReRender={handleReRender} ischecked1={true}   value={e}/>:<Onedate key={index} month={month} year={year}  onReRender={handleReRender} ischecked={true} value={e}/>
+  notdelivered.includes(e)?<Onedate key={index} month={month} year={year} color="blue" onReRender={handleReRender} ischecked1={true}   value={e}/>:<Onedate key={index} month={month} year={year} color="red" onReRender={handleReRender} ischecked={true} value={e}/>
   )
   const now1=predates.map((e,index)=>
-  notdelivered.includes(e)?<Onedate key={index} month={month} year={year} value={e}/> :<Onedate key={index} month={month} year={year} value={e}/>)
+  notdelivered.includes(e)?<Onedate key={index} month={month} year={year} ischecked2={true} color="blue"  value={e}/> :<Onedate key={index} month={month} year={year} color="#08e908" value={e}/>)
 
-  return(
-    <div className="date-choose-container">
-    <div className="prev-dates">{now1}</div>
-    <div className="next-dates">{now}</div>
-  </div>
-  )
-}
+  return (
+    <div className="date-choose-main-container">
+    <header>
+  <h1>Choose a Date</h1>
+  <p>Select your preferred date below:</p>
+</header>
+    <div className="date-choose-container"> 
+    {/* add a class to the container */}
+      <div className="date-choose-grid">
+        {/* add a class to the grid */}
+        {now1}
+        {now}
+      </div>
+    </div>
+    </div>
+  );
+} 
 
-export default Date_Choose;
+export default Date_Choose;

@@ -28,8 +28,9 @@ export default function Notmilk() {
   useEffect(()=>{
     notmilk();
   },[]);
+  // const count=1;
   const now=users.map((e,index)=>
-    <Notmilkchild key={index}  value={e.customer_id}/>
+    <Notmilkchild key={index} value={e.customer_id}/>
   )
   return (
   //   <div className="notmilk-container">

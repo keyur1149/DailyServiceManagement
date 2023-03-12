@@ -100,7 +100,7 @@ router.post('/checkreqstatus', async(req, res) => {
             year: year,
         });
         if (!now) {
-            return res.status(201).json("sendrequest");
+            return res.status(201).json("send request");
         } else if (now.request == "Accept") {
             return res.status(201).json("request accepted");
         } else if (now.request == "false") {

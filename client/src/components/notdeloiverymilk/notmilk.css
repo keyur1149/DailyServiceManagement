@@ -110,7 +110,9 @@
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
+    min-height: 100vh;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to bottom right, #7AD7F0, #92DFF3, #B7E9F7, #F5FCFF);
 }
 
 .notmilk-heading {

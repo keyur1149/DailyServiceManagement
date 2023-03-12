@@ -4,6 +4,7 @@
     align-items: center;
     height: 100vh;
     background-color: #e5e5e5;
+    background-image: linear-gradient(to bottom right, #7AD7F0, #92DFF3, #B7E9F7, #F5FCFF);
 }
 
 .signup {
@@ -57,17 +58,18 @@
     transition: background-color 0.3s ease-in-out;
 }
 
+.form-submit:hover {
+    background-color: #00CBFA;
+}
+
 .form-title {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
 
-a {}
 
-a:hover {
-    color: purple;
-}
+/*  */
 
 
 /* Media queries */

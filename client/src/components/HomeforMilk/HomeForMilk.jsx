@@ -19,6 +19,6 @@ export default function HomeForMilk() {
         <a href='/milkupdate' className="link">Update Milk Delivery</a>
         <br/>
       </div>
-    </div>
-  )
+    </div>
+  )
 }

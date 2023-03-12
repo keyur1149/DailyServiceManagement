@@ -61,6 +61,8 @@ useEffect(()=>{
         </select>
       </div>
       <div className="onereq-container">{milkman}</div>
+      <div className="onereq-container">{milkman}</div>
+      <div className="onereq-container">{milkman}</div>
     </div>
 
   )
