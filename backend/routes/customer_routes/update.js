@@ -1,5 +1,6 @@
 const express = require('express');
 const Customer = require('../../model/customer');
+const Newsprovider = require('../../model/newsprovider');
 const Milkprovider = require('../../model/milkprovider')
 const router = express.Router();
 
@@ -26,10 +27,34 @@ router.post("/milkproviderupdate", async(req, res) => {
             }
         });
         const now = await Milkprovider.findOne({
-            user_id: req.body.id
+            milk_provider_id: req.body.id
         });
         console.log(now);
         return res.status(400).json(now)
+    } catch (err) {
+        console.log(err);
+    }
+});
+router.post("/newsproviderupdate", async(req, res) => {
+    try {
+        console.log("yes");
+        const id = req.body.id;
+        const milkprovider = await Newsprovider.findOneAndUpdate({ news_provider_id: id }, {
+            $set: {
+                username: req.body.username,
+                fname: req.body.fname,
+                lname: req.body.lname,
+                email: req.body.email,
+                PhoneNumber: req.body.PhoneNumber,
+                address: req.body.address,
+                prize: req.body.prize
+            }
+        });
+        const now = await Newsprovider.findOne({
+            news_provider_id: id
+        });
+        console.log(now);
+        return res.status(201).json(now);
     } catch (err) {
         console.log(err);
     }

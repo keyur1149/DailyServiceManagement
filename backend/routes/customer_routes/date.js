@@ -1,5 +1,6 @@
 const express = require('express');
-const Cutomerproviderconnection = require('../../model/customerproviderconnection')
+const Cutomerproviderconnection = require('../../model/customerproviderconnection');
+const Newsproconnection = require('../../model/newsproconnection');
 const router = express.Router();
 
 const { application } = require('express');
@@ -11,6 +12,20 @@ router.post("/returndates", async(req, res) => {
         const now = await Cutomerproviderconnection.findOne({
             customer_id: customer_id,
             provider_id: milkprovider_id
+        });
+        console.log(now);
+        return res.status(200).json(now.dates);
+    } catch (err) {
+        console.log(err);
+    }
+});
+router.post("/returnnewsdates", async(req, res) => {
+    try {
+        const customer_id = req.body.customer_id;
+        const newsprovider_id = req.body.newsprovider_id;
+        const now = await Newsproconnection.findOne({
+            customer_id: customer_id,
+            provider_id: newsprovider_id
         });
         console.log(now);
         return res.status(200).json(now.dates);

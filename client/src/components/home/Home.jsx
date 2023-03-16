@@ -25,8 +25,29 @@ export default function Home() {
       window.location.href="/card"
     }
   }
-  const newsproviders=()=>{
-    window.location.href="/newsproviders";
+  const newsproviders=async (e)=>{
+    // e.preventdefault();
+    var user=localStorage.getItem("user");
+    user=JSON.parse(user);
+    const user_id=user.user_id;
+    console.log(user_id);
+    const res=await fetch('/newsproviderpresent',{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id
+      }),
+    });
+    // console.log(res);
+    const y=await res.json();
+    console.log(y);
+    if(y=="not"){
+      window.location.href='/newsproviders';
+    }else{
+      window.location.href="/newscard"
+    }
   }
   const profile=()=>{
     window.location.href="/profile";
@@ -34,9 +55,17 @@ export default function Home() {
   const date=()=>{
     window.location.href="/date";
   }
+  const datenews=()=>{
+    window.location.href="/datenews";
+  }
 
+  const handlelogout=async()=>{
+    localStorage.removeItem("user")
+    window.location.href="/";
+  }
   return (
     <div className="home-container">
+      <button onClick={handlelogout} >Log Out</button>
     <header>
       <h1>Welcome to Our Site</h1>
       <p>Find the best milk and news providers in your area</p>
@@ -60,10 +89,15 @@ export default function Home() {
     </div>
     <div className="button-container">
       <button className="button date-button" onClick={date}>
-        Choose a Date
+        Choose a Date for Milk
       </button>
     </div>
-   </div>
+    <div className="button-container">
+      <button className="button date-button" onClick={datenews}>
+        Choose a Date for News
+      </button> 
+    </div>
+  </div>
 
   )
 }

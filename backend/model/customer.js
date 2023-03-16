@@ -40,7 +40,10 @@ const userschema = new mongoose.Schema({
     },
     milkprovider_id: {
         type: String,
-    }
+    },
+    newsprovider_id: {
+        type: String,
+    },
 })
 
 

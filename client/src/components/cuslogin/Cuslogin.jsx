@@ -37,7 +37,9 @@ export default function Cuslogin() {
       localStorage.setItem("user", JSON.stringify(y));
       window.location.href='/milkhome'
     }else if(y.news_provider_id){
-      console.log("news vado");
+      setData(y);
+      localStorage.setItem("user", JSON.stringify(y));
+      window.location.href='/newshome'
     }else if(y.user_id){
       console.log("customer ");
       setData(y);

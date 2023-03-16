@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import "./style.css";
 // import {NavLink} from 'react-router-dom'
-export default function Milk() {
+export default function Newsregister() {
   const [data, setData] = useState({
-    milk_provider_id: "",
     username: "",
     fname: "",
     lname: "",
@@ -12,11 +11,7 @@ export default function Milk() {
     confirm_password: "",
     PhoneNumber: "",
     address: "",
-    prize: "",
-    morning_start:"",
-    morning_end: "",
-    evening_start: "",
-    evening_end: "",
+    prize: ""
   });
   const [error, seterror] = useState({
     username: "",
@@ -26,14 +21,7 @@ export default function Milk() {
     PhoneNumber: "",
   });
   const [mainerror, setmainerror] = useState();
-  const [isChecked, setIsChecked] = useState(false);
-  const [evening,setevening]=useState(false);
-  const handleOnChange = () => {
-    setIsChecked(!isChecked);
-  };
-  const handleOnChanges = () => {
-    setevening(!evening);
-  };
+
   const handlechange = (e) => {
     console.log(e.target);
     const { name, value } = e.target;
@@ -138,10 +126,9 @@ export default function Milk() {
   const handlesignup = async (e) => {
     console.log("print yes");
     e.preventDefault();
-    const { username, fname,prize, lname, address, password, email, PhoneNumber,evening_start,evening_end,morning_start,morning_end} =
+    const { username, fname,prize, lname, address, password, email, PhoneNumber} =
       data;
-      const morning=isChecked;
-    const res = await fetch("/milkproviderregister", {
+    const res = await fetch("/newsproviderregister", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -154,13 +141,7 @@ export default function Milk() {
         password,
         prize,
         PhoneNumber,
-        address,
-        morning_start,
-        morning_end,
-        evening_start,
-        evening_end,
-        morning,
-        evening,
+        address
       }),
     });
     console.log(res);
@@ -175,14 +156,12 @@ export default function Milk() {
     } else if (y.message === "username") {
       setmainerror("user with " + username + " Username is already exits");
     } else {
-      localStorage.setItem("loginuser", JSON.stringify(y));
+      localStorage.setItem("user", JSON.stringify(y));
       setData(y);
       // console.log(data);
       window.location.href = "/";
     }
   };
-  const mor = isChecked===true ? <div class="form-group"><div class="form-group">starting morning time :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">ending morning time :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
-  const eve=evening===true?<div class="form-group"><div class="form-group">starting evening time :- <input type="time" id="evening_start" onChange={handlechange} value={data.evening_start} name="evening_start" min="13:00" max="22:00" required></input></div><div class="form-group">ending evening time :- <input type="time" onChange={handlechange} value={data.evening_end} id="evening_end" name="evening_end" min="14:00" max="22:00" required></input></div></div>:"";
 
 
   return (
@@ -190,7 +169,7 @@ export default function Milk() {
       <section class="signup">
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
+          
         >
           <div class="signup-content">
             <form
@@ -310,7 +289,7 @@ export default function Milk() {
                 {/* <div style={{color:'red'}}>{error.}</div> */}
               </div>
               <div class="form-group">
-                <div>Prize Per liter :- </div>  
+                <div>Prize Per Month :- </div>  
                 <select onChange={handlechange} name="prize" value={data.prize}>
                   <option value={40} defaultChecked>40</option>
                   <option value={41}>41</option>
@@ -333,47 +312,15 @@ export default function Milk() {
                   <option value={58}>58</option>
                   <option value={59}>59</option>
                 </select>
-                {/* <input
-                  type="number"
-                  class="form-input"
-                  onChange={handlechange}
-                  value={data.prize}
-                  name="prize"
-                  id="prize"
-                  placeholder="Your milk prize per liter"
-                  required
-                /> */}
-                {/* <div style={{color:'red'}}>{error.}</div> */}
+                
               </div>
+              
               
               
               
               <div class="form-group">
                 <input
-                  type="checkbox"
-                  id="when"
-                  name="morning"
-                  value="morning"
-                  onChange={handleOnChange}
-                ></input>
-                morning
-
-                <input
-                  type="checkbox"
-                  id="when"
-                  name="evening"
-                  value="evening"
-                  onChange={handleOnChanges}
-                ></input>
-                evening
-              </div>
-              <div class="form-group">{mor}   {eve}</div>
-              <div class="form-group">
-                <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
+                  
                   type="submit"
                   name="submit"
                   id="submit"

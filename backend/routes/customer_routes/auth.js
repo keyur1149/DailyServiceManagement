@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const Milkprovider = require('../../model/milkprovider')
 const Newsprovider = require('../../model/newsprovider.js')
 const Cutomerproviderconnection = require('../../model/customerproviderconnection')
+const Newsproconnection = require('../../model/newsproconnection');
 const Customer = require('../../model/customer')
 const router = express.Router();
 const { application } = require('express');
@@ -25,10 +26,39 @@ router.post("/customerandproviderlist", async(req, res) => {
         console.log(err);
     }
 });
+router.post("/customerandnewsproviderlist", async(req, res) => {
+    try {
+        const provider_id = req.body.provider_id;
+        const temp = "false";
+        // console.log(customer_id);
+        const customerconnection = await Newsproconnection.find({
+            provider_id: provider_id,
+            request: temp,
+        });
+        console.log(customerconnection);
+        return res.status(200).json(customerconnection);
+    } catch (err) {
+        console.log(err);
+    }
+});
 router.post("/milkproviderpresent", async(req, res) => {
     try {
         // console.log(req.body.user_id);
-        const users = await Cutomerproviderconnection.findOne({ customer_id: req.body.user_id });
+        const users = await Cutomerproviderconnection.findOne({ customer_id: req.body.user_id, request: "Accept" });
+        if (!users) {
+            return res.status(201).json("not");
+        } else {
+            return res.status(201).json("yes");
+        }
+    } catch (err) {
+        console.log(err);
+    }
+});
+router.post("/newsproviderpresent", async(req, res) => {
+    try {
+        // console.log(req.body.user_id);
+        const users = await Newsproconnection.findOne({ customer_id: req.body.user_id, request: "Accept" });
+        // console.log(users);
         if (!users) {
             return res.status(201).json("not");
         } else {
@@ -47,6 +77,15 @@ router.post("/milkman", async(req, res) => {
         console.log(err);
     }
 });
+router.post("/newsman", async(req, res) => {
+    try {
+        const users = await Newsprovider.find();
+        console.log(users);
+        return res.status(201).json(users);
+    } catch (err) {
+        console.log(err);
+    }
+});
 router.post('/customerlogin', async(req, res) => {
     console.log(req.body);
     const { username, password } = req.body;
@@ -57,10 +96,13 @@ router.post('/customerlogin', async(req, res) => {
         if (!customerlogin) {
             const milklogin = await Milkprovider.findOne({ username: username });
             if (!milklogin) {
+                const newslogin = await Newsprovider.findOne({ username: username });
+                if (!newslogin) {
+                    return res.status(400).json({ error: "user not found" });
+                } else if (password == newslogin.password) {
+                    return res.status(201).json(newslogin);
+                }
 
-                return res.status(400).json({
-                    error: "user not exits"
-                });
             } else if (password == milklogin.password) {
                 // console.log("now send");
                 return res.status(201).json(milklogin);
@@ -146,8 +188,8 @@ router.post('/milkproviderregister', async(req, res) => {
         console.log(err);
     }
 });
-router.post('/newspaperregister', async(req, res) => {
-    const { username, fname, lname, email, PhoneNumber, password, address, prize, delivery_time } = req.body;
+router.post('/newsproviderregister', async(req, res) => {
+    const { username, fname, lname, email, PhoneNumber, password, address, prize } = req.body;
     try {
         const userexitphone = await Newsprovider.findOne({
             PhoneNumber: PhoneNumber
@@ -179,8 +221,7 @@ router.post('/newspaperregister', async(req, res) => {
                 PhoneNumber,
                 password,
                 address,
-                prize,
-                delivery_time
+                prize
             });
             //  hasing of password before save
             await newsprovider.save();

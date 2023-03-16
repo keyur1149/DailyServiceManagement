@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
+// import './style.css';
 
-export default function HomeForMilk() {
+export default function NewsHome() {
   const handlelogout=async()=>{
-    localStorage.removeItem("user")
-    window.location.href="/";
+    localStorage.removeItem("user");
+    window.location.href="/"
   }
   return (
     <div className="home-milk-container">
@@ -15,15 +15,15 @@ export default function HomeForMilk() {
       <br/>
       <br/>
       <div className="link-container">
-        <a href='/request' className="link">Request Milk Delivery</a>
+        <a href='/newsrequest' className="link">Request News Delivery</a>
         <br/>
         <br/>
-        <a href='/todaynotdelivery' className="link">Report Milk Not Delivered</a>
+        <a href='/todaynotdeliverynews' className="link">Report Newspaper Not Delivered</a>
         <br/>
         <br/>
-        <a href='/milkupdate' className="link">Update Milk Delivery</a>
+        <a href='/newsupdate' className="link">Update News Delivery</a>
         <br/>
       </div>
-    </div>
-  )
+    </div>
+)
 }

@@ -40,10 +40,6 @@ const newspaper = new mongoose.Schema({
     prize: {
         type: Number,
         required: true
-    },
-    delivery_time: {
-        type: String,
-        required: true
     }
 })
 
