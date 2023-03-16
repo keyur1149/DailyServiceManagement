@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 // import {FaBeer} from 'react-icons/MdCancel'
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import './one.css'
-export default function Onedate(props) {
+export default function Onedatenews(props) {
   const [showCrossButton, setShowCrossButton] = useState(false);
   const handleDelivery=async(e)=>{
     e.preventDefault();
@@ -23,7 +23,7 @@ export default function Onedate(props) {
       })
     });
       const y=await res.json();
-      console.log("now work");
+      console.log(y);
       props.onReRender();
       // console.log("working done");
   }
@@ -78,7 +78,7 @@ export default function Onedate(props) {
          style={{ backgroundColor: getStatusColor() }}
          onMouseEnter={handleMouseEnter}
          onMouseLeave={handleMouseLeave}>
-      <h1>{props.value}</h1>
+      <h1>{props.value} </h1>
       <div className="Onedate-actions">
         {showCrossButton && props.ischecked1 &&
           <button className="cross-button" onClick={handleCancellation}>
@@ -92,5 +92,5 @@ export default function Onedate(props) {
         }
       </div>
 </div>
-  )
+)
 }

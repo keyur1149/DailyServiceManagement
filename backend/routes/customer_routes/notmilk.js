@@ -71,7 +71,7 @@ router.post("/notdeliveryonthisdate", async(req, res) => {
 router.post("/notdeliverynewsonthisdate", async(req, res) => {
     try {
         const { customer_id, newsprovider_id, date, month, year } = req.body;
-        await Cutomerproviderconnection.findOneAndUpdate({
+        await Newsproconnection.findOneAndUpdate({
             customer_id: customer_id,
             provider_id: newsprovider_id,
             year: year,

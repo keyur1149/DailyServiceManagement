@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Onedatenews from "../showdate/Onedatenews";
 import'./datechoose.css'
-function Date_Choose(){
+function Date_Choose_News(){
   const [nextdates,setnextdates]=useState([]);
   const [predates,setpredates]=useState([]);
   const [notdelivered,setnotdelivered]=useState([]);
@@ -14,23 +14,22 @@ const handleReRender = () => {
  setReRender(!reRender); // state change will re-render parent      
 };   
   const doing1=async ()=>{
-    console.log("doing working");
+    // console.log("doing working");
     // const date=data.selected_date;
     var user=localStorage.getItem("user");
     user=JSON.parse(user);
     const customer_id=user.user_id;
-    const milkprovider_id=user.milkprovider_id;
+    const newsprovider_id=user.newsprovider_id;
     const res = await fetch("/returnnewsdates", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        customer_id,milkprovider_id
+        customer_id,newsprovider_id
       })
     })
       const y=await res.json();
-      console.log(res);
       setnotdelivered([...y]);
     // console.log(notdelivered);
 
@@ -83,7 +82,7 @@ const handleReRender = () => {
   return (
     <div className="date-choose-main-container">
     <header>
-  <h1>Choose a Date1</h1>
+  <h1>Choose a Date</h1>
   <p>Select your preferred date below:</p>
 </header>
     <div className="date-choose-container"> 
@@ -98,4 +97,4 @@ const handleReRender = () => {
   );
 } 
 
-export default Date_Choose;
+export default Date_Choose_News;

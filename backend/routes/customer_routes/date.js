@@ -71,4 +71,28 @@ router.post('/deletedate', async(req, res) => {
     }
 });
 
+
+router.post('/deletedatenews', async(req, res) => {
+    try {
+        const date = req.body.date;
+        const newsprovider_id = req.body.newsprovider_id;
+        const customer_id = req.body.customer_id;
+        const month = req.body.month;
+        const year = req.body.year;
+        await Newsproconnection.findOneAndUpdate({
+            provider_id: newsprovider_id,
+            customer_id: customer_id,
+            month: month,
+            year: year
+        }, {
+            $pull: {
+                dates: date,
+            }
+        });
+        return res.status(201).json("done");
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 module.exports = router;
