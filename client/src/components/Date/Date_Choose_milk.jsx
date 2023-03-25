@@ -81,8 +81,10 @@ const handleReRender = () => {
   return (
     <div className="date-choose-main-container">
     <header>
-  <h1>Choose a Date</h1>
-  <p>Select your preferred date below:</p>
+  {/* <h1>Choose a Date</h1>
+  <p>Select your preferred date below:</p> */}
+  <h1>Help your milkman by informing them </h1>
+  <p>Update dates accordingly</p>
 </header>
     <div className="date-choose-container"> 
     {/* add a class to the container */}

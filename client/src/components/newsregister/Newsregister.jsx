@@ -156,10 +156,9 @@ export default function Newsregister() {
     } else if (y.message === "username") {
       setmainerror("user with " + username + " Username is already exits");
     } else {
-      localStorage.setItem("user", JSON.stringify(y));
-      setData(y);
+      
       // console.log(data);
-      window.location.href = "/";
+      window.location.href = "/adminhome";
     }
   };
 
@@ -291,26 +290,15 @@ export default function Newsregister() {
               <div class="form-group">
                 <div>Prize Per Month :- </div>  
                 <select onChange={handlechange} name="prize" value={data.prize}>
-                  <option value={40} defaultChecked>40</option>
-                  <option value={41}>41</option>
-                  <option value={42}>42</option>
-                  <option value={43}>43</option>
-                  <option value={44}>44</option>
-                  <option value={45}>45</option>
-                  <option value={46}>46</option>
-                  <option value={47}>47</option>
-                  <option value={48}>48</option>
-                  <option value={49}>49</option>
+                  <option value={30} defaultChecked>30</option>
+                  <option value={40}>40</option>
                   <option value={50}>50</option>
-                  <option value={51}>51</option>
-                  <option value={52}>52</option>
-                  <option value={53}>53</option>
-                  <option value={54}>54</option>
-                  <option value={55}>55</option>
-                  <option value={56}>56</option>
-                  <option value={57}>57</option>
-                  <option value={58}>58</option>
-                  <option value={59}>59</option>
+                  <option value={60}>60</option>
+                  <option value={70}>70</option>
+                  <option value={80}>80</option>
+                  <option value={90}>90</option>
+                  <option value={100}>100</option>
+                  
                 </select>
                 
               </div>

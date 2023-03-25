@@ -15,13 +15,13 @@ export default function NewsHome() {
       <br/>
       <br/>
       <div className="link-container">
-        <a href='/newsrequest' className="link">Request News Delivery</a>
+        <a href='/newsrequest' className="link">Request Of New Customers</a>
         <br/>
         <br/>
-        <a href='/todaynotdeliverynews' className="link">Report Newspaper Not Delivered</a>
+        <a href='/todaynotdeliverynews' className="link">Today's Delivery Status</a>
         <br/>
         <br/>
-        <a href='/newsupdate' className="link">Update News Delivery</a>
+        <a href='/newsupdate' className="link">Update My Details</a>
         <br/>
       </div>
     </div>

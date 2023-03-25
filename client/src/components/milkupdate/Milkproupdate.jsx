@@ -72,13 +72,17 @@ export default function  Milkproupdate() {
     e.preventDefault();
     const { username, fname,prize, lname, address, password, email, PhoneNumber,evening_start,evening_end,morning_start,morning_end} =
       data;
-      const morning=isChecked;
+      const morning=isChecked;   var user=localStorage.getItem("user");
+      user=JSON.parse(user);
+      const id=user.milk_provider_id;
+
     const res = await fetch("/milkproviderupdate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id,
         username,
         fname,
         lname,
@@ -109,19 +113,34 @@ export default function  Milkproupdate() {
       localStorage.setItem("user", JSON.stringify(y));
       setData(y);
       // console.log(data);
-      window.location.href = "/";
+      // window.location.href = "/";
     }
+    
   };
-  const mor = isChecked ? <div class="form-group"><div class="form-group">starting morning time :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">ending morning time :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
-  const eve=evening?<div class="form-group"><div class="form-group">starting evening time :- <input type="time" id="evening_start" onChange={handlechange} value={data.evening_start} name="evening_start" min="13:00" max="22:00" required></input></div><div class="form-group">ending evening time :- <input type="time" onChange={handlechange} value={data.evening_end} id="evening_end" name="evening_end" min="14:00" max="22:00" required></input></div></div>:"";
   useEffect(()=>{
-    var user=localStorage.getItem("user");
-    user=JSON.parse(user);
-    setData({ ['milk_provider_id']:user.milk_provider_id,['username']: user.username,['fname']:user.fname,['lname']:user.lname,['email']:user.email,['PhoneNumber']:user.PhoneNumber,['address']:user.address,['prize']: user.prize,['morning_start']:user.morning_start,['morning_end']:user.morning_end,['evening_start']:user.evening_start,['evening_end']:user.evening_end});
+  var user=localStorage.getItem("user");
+  user=JSON.parse(user);
+  setData({ ['milk_provider_id']:user.milk_provider_id,['username']: user.username,['fname']:user.fname,['lname']:user.lname,['email']:user.email,['PhoneNumber']:user.PhoneNumber,['address']:user.address,['prize']: user.prize,['morning_start']:user.morning_start,['morning_end']:user.morning_end,['evening_start']:user.evening_start,['evening_end']:user.evening_end});
+  // const morning= user.morning==="true"?true:false;
+  // check();
     setIsChecked(user.morning);
+    document.getElementById("when1").checked = user.morning;
+
+
+    // document.getElementById("when").checked = isChecked;
+
     setevening(user.evening);
-    // console.log(data.morning);
-  },[])
+    document.getElementById("when2").checked = user.evening;
+    // document.getElementById("when").checked = isChecked;
+  // setIsChecked(user.morning);
+  // console.log(isChecked);
+  // setevening(user.evening);
+  // console.log(data.morning);
+},[])
+
+const mor = isChecked ? <div class="form-group"><div class="form-group">Morning delivery time from :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">To :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
+// console.log(mor);  
+const eve=evening?<div class="form-group"><div class="form-group">Evening delivery time from:- <input type="time" id="evening_start" onChange={handlechange} value={data.evening_start} name="evening_start" min="13:00" max="22:00" required></input></div><div class="form-group">To:- <input type="time" onChange={handlechange} value={data.evening_end} id="evening_end" name="evening_end" min="14:00" max="22:00" required></input></div></div>:"";
 
   return (
     <div class="main">
@@ -260,18 +279,18 @@ export default function  Milkproupdate() {
               <div class="form-group">
                 <input
                   type="checkbox"
-                  id="when"
+                  id="when1"
                   name="morning"
-                  value={data.morning}
+                  value={isChecked}
                   onChange={handleOnChange}
                 ></input>
                 morning
 
                 <input
                   type="checkbox"
-                  id="when"
+                  id="when2"
                   name="evening"
-                  value="evening"
+                  value={evening}
                   onChange={handleOnChanges}
                 ></input>
                 evening
@@ -284,7 +303,7 @@ export default function  Milkproupdate() {
                   name="submit"
                   id="submit"
                   class="form-submit"
-                  value="Sign up"
+                  value="Update Details"
                 />
                 <div style={{ color: "red" }}>{mainerror}</div>
               </div>

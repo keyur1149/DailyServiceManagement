@@ -92,31 +92,44 @@ router.post('/customerlogin', async(req, res) => {
     // console.log(username);
     // console.log(password);
     try {
-        const customerlogin = await Customer.findOne({ username: username });
-        if (!customerlogin) {
-            const milklogin = await Milkprovider.findOne({ username: username });
-            if (!milklogin) {
-                const newslogin = await Newsprovider.findOne({ username: username });
-                if (!newslogin) {
-                    return res.status(400).json({ error: "user not found" });
-                } else if (password == newslogin.password) {
-                    return res.status(201).json(newslogin);
-                }
-
-            } else if (password == milklogin.password) {
-                // console.log("now send");
-                return res.status(201).json(milklogin);
-            }
+        if (username === "admin15" && password === "admin@1512") {
+            console.log("in Admin");
+            return res.status(201).json({
+                username,
+                password
+            });
         } else {
-            const ismatch = await bcrypt.compare(password, customerlogin.password);
-            if (!ismatch) {
-
-                return res.status(400).json({ error: "password not valid" });
-
+            const customerlogin = await Customer.findOne({ username: username });
+            if (!customerlogin) {
+                const milklogin = await Milkprovider.findOne({ username: username });
+                if (!milklogin) {
+                    const newslogin = await Newsprovider.findOne({ username: username });
+                    if (!newslogin) {
+                        return res.status(400).json({ error: "user not found" });
+                    } else if (password == newslogin.password) {
+                        return res.status(201).json(newslogin);
+                    } else {
+                        return res.status(400).json({
+                            error: "password is incorrect"
+                        });
+                    }
+                } else if (password == milklogin.password) {
+                    // console.log("now send");
+                    return res.status(201).json(milklogin);
+                } else {
+                    return res.status(400).json({ error: "password is incorrect" });
+                }
             } else {
-                // token = await userlogin.generateAuthToken();
-                return res.status(201).json(customerlogin);
-                // navigate("/");
+                const ismatch = await bcrypt.compare(password, customerlogin.password);
+                if (!ismatch) {
+
+                    return res.status(400).json({ error: "password not valid" });
+
+                } else {
+                    // token = await userlogin.generateAuthToken();
+                    return res.status(201).json(customerlogin);
+                    // navigate("/");
+                }
             }
         }
     } catch (err) {

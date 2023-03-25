@@ -45,7 +45,7 @@ useEffect(()=>{
   return (
     <div className="milkprovider-container">
       <div className="select-container">
-        <p className="howmuchmilk">How much milk you want?</p>
+        <p className="howmuchmilk">How much milk do you want?</p>
         <select onChange={chnagehowmuchmilk} name="howmuchmilk" value={howmuchmilk}>
           <option value={0.5} defaultValue>0.5</option>
           <option value={0.75}>0.75</option>

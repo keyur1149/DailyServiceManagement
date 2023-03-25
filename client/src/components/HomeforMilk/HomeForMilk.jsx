@@ -15,15 +15,15 @@ export default function HomeForMilk() {
       <br/>
       <br/>
       <div className="link-container">
-        <a href='/request' className="link">Request Milk Delivery</a>
+        <a href='/request' className="link">Request Of New Customers</a>
         <br/>
         <br/>
-        <a href='/todaynotdelivery' className="link">Report Milk Not Delivered</a>
+        <a href='/todaynotdelivery' className="link">Today's Delivery Status</a>
         <br/>
         <br/>
-        <a href='/milkupdate' className="link">Update Milk Delivery</a>
+        <a href='/milkupdate' className="link">Update My Details</a>
         <br/>
       </div>
-    </div>
-  )
+    </div>
+  )
 }

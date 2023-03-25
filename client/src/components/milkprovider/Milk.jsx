@@ -175,10 +175,8 @@ export default function Milk() {
     } else if (y.message === "username") {
       setmainerror("user with " + username + " Username is already exits");
     } else {
-      localStorage.setItem("loginuser", JSON.stringify(y));
-      setData(y);
       // console.log(data);
-      window.location.href = "/";
+      window.location.href = "/adminhome";
     }
   };
   const mor = isChecked===true ? <div class="form-group"><div class="form-group">starting morning time :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">ending morning time :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
@@ -190,7 +188,7 @@ export default function Milk() {
       <section class="signup">
         <div
           class="container"
-          style={{ marginBottom: "35px", marginTop: "35px", width: "660px" }}
+         
         >
           <div class="signup-content">
             <form
@@ -370,10 +368,7 @@ export default function Milk() {
               <div class="form-group">{mor}   {eve}</div>
               <div class="form-group">
                 <input
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to left, rgb(207 212 235), rgb(101 44 145))",
-                  }}
+                 
                   type="submit"
                   name="submit"
                   id="submit"

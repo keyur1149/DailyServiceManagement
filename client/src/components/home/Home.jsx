@@ -65,21 +65,22 @@ export default function Home() {
   }
   return (
     <div className="home-container">
-      <button onClick={handlelogout} >Log Out</button>
+     <button type="button" class="btn btn-danger" onClick={handlelogout}>Log Out</button>
     <header>
       <h1>Welcome to Our Site</h1>
-      <p>Find the best milk and news providers in your area</p>
+      <p>Find the best suitable milkman and paperboy in your area 
+</p>
       <p>Stay up-to-date on local events and happenings</p>
       <p>Connect with your community and neighbors</p>
     </header>
     <div className="button-container">
       <button className="button milk-button" onClick={next1}>
-        Find Milk Providers
+      Find milkman 
       </button>
     </div>
     <div className="button-container">
       <button className="button news-button" onClick={newsproviders}>
-        Find News Providers
+      Find paperboy
       </button>
     </div>
     <div className="button-container">
@@ -89,12 +90,12 @@ export default function Home() {
     </div>
     <div className="button-container">
       <button className="button date-button" onClick={date}>
-        Choose a Date for Milk
+      Update your dates for milk delivery 
       </button>
     </div>
     <div className="button-container">
       <button className="button date-button" onClick={datenews}>
-        Choose a Date for News
+      Update your dates for newspaper delivery
       </button> 
     </div>
   </div>

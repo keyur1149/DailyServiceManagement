@@ -30,22 +30,26 @@ export default function Cuslogin() {
     });
     console.log(res);
     const y = await res.json();
-    
-    if(y.milk_provider_id){
+    if(y.error){
+      setmainerror(y.error);
+    }else if(y.username==="admin15"){
+      localStorage.setItem("user", JSON.stringify(y));
+      window.location.href='/'
+    }else if(y.milk_provider_id){
       console.log("milk vado");
       setData(y);
       localStorage.setItem("user", JSON.stringify(y));
-      window.location.href='/milkhome'
+      window.location.href='/'
     }else if(y.news_provider_id){
       setData(y);
       localStorage.setItem("user", JSON.stringify(y));
-      window.location.href='/newshome'
+      // window.location.href='/'
     }else if(y.user_id){
       console.log("customer ");
       setData(y);
       localStorage.setItem("user", JSON.stringify(y));
       // window.location.redirect('/milkproviders')
-      window.location.href='/home';
+      window.location.href='/';
     }
     console.log(y);
     setData(y);

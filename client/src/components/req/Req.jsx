@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./req.css"
+import user from './1.jpg';
 export default function Req(props) {
     const [data,setdata]=useState();
     const [ans,setans]=useState();
@@ -72,7 +73,7 @@ export default function Req(props) {
     <div className="req-container">
         
     <div className="user-info">
-      <img src="1.jpg" alt="User Avatar" />
+      <img src={user} alt="User Avatar" />
       <h3 className='username'>{data}</h3>
     </div>
     <div className="buttons">

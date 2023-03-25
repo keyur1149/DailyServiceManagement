@@ -40,7 +40,7 @@ export default function NewsDelivery() {
   //   </div>
   // </div>
   <div className="notmilk-container">
-      <h1 className="notmilk-heading">Customers Not Received News</h1>
+      <h1 className="notmilk-heading">Listed user's Don't want newspaper today</h1>
       <div className="notmilk-list">{now}</div>
     </div>
   )
