@@ -26,6 +26,9 @@ import Newscard from './components/monthlycard/Newscard';
 import Date_Choose from './components/Date/Date_Choose_milk';
 import Date_Choose_News from './components/Date/Date_Choose_News';
 import Adminhome from './components/Admin/Adminhome';
+import Forgotpass from './components/forgotpassword/Forgotpass';
+import OTP from './components/forgotpassword/OTP';
+import Changepass from './components/forgotpassword/Changepass';
 function App() {
   const [user,setdata]=useState(JSON.parse(localStorage.getItem('user')));
   const [milk,setmilk] = useState();
@@ -59,6 +62,7 @@ function App() {
     {news && <Route path="/" element={<NewsHome/>}/>}
         {!user && <Route  path="/" element={<Cuslogin/>} />}
         {admin && <Route path='/' element={<Adminhome/>}/>}
+        <Route path="/" element={<Home/>}/>
      <Route  path="/milkproviders" element={<Milkproviders/>} />
      <Route  path="/newsproviders" element={<Newsproviders/>} />
      <Route path="/profile" element={<CusUpadate/>}/>
@@ -75,7 +79,10 @@ function App() {
   <Route path="/newsupdate" element={<NewsUpdate/>}/>
   <Route path='/card' element={<Monthlycard/>}/>
   <Route path='/newscard' element={<Newscard/>}/>
+  <Route path='/forgotpassword' element={<Forgotpass/>}/>
   <Route path='/todaynotdeliverynews' element={<NewsDelivery/>}/>
+  <Route path='/otp' element={<OTP/>}/>
+  <Route path="/changepass" element={<Changepass/>}/>
   
     </Routes>
     </BrowserRouter>

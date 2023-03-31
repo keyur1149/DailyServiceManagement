@@ -54,6 +54,19 @@ export default function Cuslogin() {
     console.log(y);
     setData(y);
   };
+  const sendmail=async(e)=>{
+    e.preventDefault();
+    const res=await fetch("/forgotpassword",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      }),
+    });
+    const y=await res.json();
+    console.log(y);
+  }
 
   return (
     <div class="main">
@@ -115,6 +128,7 @@ export default function Cuslogin() {
                 <div style={{ color: "red" }}>{mainerror}</div>
               </div>
             </form>
+            <div> <a href="/forgotpassword">forgotpassword</a></div>
             <div>New Here ? <a href="/customerregister"> Sign Up</a></div>
           </div>
         </div>

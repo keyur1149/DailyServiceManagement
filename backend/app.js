@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var cors = require('cors')
 const schedule = require('node-schedule');
 
+
 mongoose.set('strictQuery', true);
 
 const express = require('express');
@@ -14,9 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json())
 app.use(cors());
-schedule.scheduleJob('* * * 1-12 *', () => {
-    console.log("working ");
-});
 // app.use(require('./routes/customer_routes/auth'));
 app.use(require('./routes/customer_routes/auth'));
 app.use(require('./routes/customer_routes/cusidtoname'));
@@ -25,8 +23,41 @@ app.use(require('./routes/customer_routes/date'));
 app.use(require('./routes/customer_routes/request'));
 app.use(require('./routes/customer_routes/update'));
 app.use(require('./routes/customer_routes/milkprize'));
+app.use(require('./routes/customer_routes/forgottenpass'));
+schedule.scheduleJob('* * * 1-12 *', () => {
+    console.log("working ");
+    // route.post("/");
+    // domails();
+});
 const port = process.env.port;
 app.listen(port, () => {
     console.log(`server is running on ${port} port`);
 });
 console.log("moanan")
+
+function domails() {
+    var nodemailer = require('nodemailer');
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: '20ceuog027@ddu.ac.in',
+            pass: 'keyurddu'
+        }
+    });
+    let mailOptions = {
+        from: '20ceuog0274@ddu.ac.in',
+        // to: req.body.email,
+        to: "keyurpatel1149@gmail.com",
+        subject: 'Kon be Kon!',
+        text: 'this is your last warning okay. this is computer generated email'
+    };
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            return res.status(200).json({
+                msg: 'Email sent '
+            });
+        }
+    });
+}
