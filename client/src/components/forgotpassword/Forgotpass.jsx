@@ -23,13 +23,15 @@ export default function Forgotpass() {
         seterror(y.msg);
         navigate("/otp",{state: {forgot:otp,email:email}});
     };  
-  return (<div>
+  return (<div className='home-container border'>
+    <div className="border border-dark" style={{borderWidth:"5px"}}>
     <div>
-       Email :-  <input type="email" name="email" value={email} onChange={handlechange}/>
-    </div>
-    <div><button onClick={forgotpassword}>forgot</button></div>
+      <h2> Email</h2> <input style={{height:"25px"}} type="email" name="email" value={email} onChange={handlechange}/>
+    </div><br/> 
+    <div><button onClick={forgotpassword} className='button milk-button'>forgot</button></div>
     <div>
    {error}
+ </div>
  </div>
  </div>
   )

@@ -128,7 +128,7 @@ export default function Cuslogin() {
                 <div style={{ color: "red" }}>{mainerror}</div>
               </div>
             </form>
-            <div> <a href="/forgotpassword">forgotpassword</a></div>
+            <div> <a href="/forgotpassword">Forgot password?</a></div><br/>
             <div>New Here ? <a href="/customerregister"> Sign Up</a></div>
           </div>
         </div>

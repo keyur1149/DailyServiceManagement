@@ -8,7 +8,7 @@ export default function HomeForMilk() {
   }
   return (
     <div className="home-milk-container">
-      <button onClick={handlelogout}>Log Out</button>
+      
       <header className='home-header'>
         <h1>Distributor Dashboard</h1>
       </header>
@@ -24,6 +24,7 @@ export default function HomeForMilk() {
         <a href='/milkupdate' className="link">Update My Details</a>
         <br/>
       </div>
+      <button className='btn btn-primary' style={{backgroundColor:"white"}} onClick={handlelogout}>Log Out</button>
     </div>
   )
 }

@@ -135,6 +135,8 @@ export default function Milk() {
       seterror({ ...error, [now]: "" });
     }
   }, [data.email]);
+
+
   const handlesignup = async (e) => {
     console.log("print yes");
     e.preventDefault();
@@ -167,20 +169,20 @@ export default function Milk() {
     const y = await res.json();
     if (y.message === "PhoneNumber") {
       setmainerror(
-        "user with " + PhoneNumber + " PhoneNumber is already exits"
+        "user with " + PhoneNumber + " phone number already exists"
       );
       setData({ ...data, [y.message]: "" });
     } else if (y.message === "email") {
-      setmainerror("user with " + email + " Email is already exits");
+      setmainerror("user with " + email + " Email already exists");
     } else if (y.message === "username") {
-      setmainerror("user with " + username + " Username is already exits");
+      setmainerror("user with " + username + " Username already exists");
     } else {
       // console.log(data);
       window.location.href = "/adminhome";
     }
   };
-  const mor = isChecked===true ? <div class="form-group"><div class="form-group">starting morning time :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">ending morning time :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
-  const eve=evening===true?<div class="form-group"><div class="form-group">starting evening time :- <input type="time" id="evening_start" onChange={handlechange} value={data.evening_start} name="evening_start" min="13:00" max="22:00" required></input></div><div class="form-group">ending evening time :- <input type="time" onChange={handlechange} value={data.evening_end} id="evening_end" name="evening_end" min="14:00" max="22:00" required></input></div></div>:"";
+  const mor = isChecked===true ? <div class="form-group"><div class="form-group">From :- <input type="time" id="morning_start" onChange={handlechange} value={data.morning_start} name="morning_start" min="07:00" max="11:00" required></input></div><div class="form-group">To :- <input type="time" onChange={handlechange} value={data.morning_end} id="morning_end" name="morning_end" min="08:00" max="11:00" required></input></div></div> : "";
+  const eve=evening===true?<div class="form-group"><div class="form-group">From :- <input type="time" id="evening_start" onChange={handlechange} value={data.evening_start} name="evening_start" min="13:00" max="22:00" required></input></div><div class="form-group">To :- <input type="time" onChange={handlechange} value={data.evening_end} id="evening_end" name="evening_end" min="14:00" max="22:00" required></input></div></div>:"";
 
 
   return (

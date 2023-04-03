@@ -58,8 +58,8 @@ export default function Onereq(props) {
   return (
     <div className="onereq">
       <h3>Name: {props.now.username}</h3>
-      <p>Prize/liter: {props.now.prize}</p>
-      <button className="btn" onClick={now==="sendrequest" ? sendrequest : tp}>{now}</button>
+      <p>Prize/litre: {props.now.prize}</p>
+      <button className="btn" onClick={now==="send request" ? sendrequest() : tp}>{now}</button>
 </div>
 
   )

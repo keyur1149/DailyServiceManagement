@@ -12,7 +12,8 @@ export default function OTP() {
         }
     })
   return (
-    <>
+    <div className='home-container'>
+      <h3>Enter Otp</h3>
     {/* <div>{location.state.forgot}</div> */}
     <OtpInput
       value={otp}
@@ -21,6 +22,6 @@ export default function OTP() {
       renderSeparator={<span>-</span>}
       renderInput={(props) => <input {...props} />}
     />
-    </>
+    </div>
   );
 }

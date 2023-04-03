@@ -13,7 +13,6 @@ export default function adminhome() {
       }
   return (
     <div className="home-container">
-    <button type="button" class="btn btn-danger" onClick={handlelogout}>Log Out</button>
    
    <div className="button-container">
      <button className="button milk-button" onClick={milkproviders}>
@@ -25,6 +24,8 @@ export default function adminhome() {
      Add New NewsProvider
      </button>
    </div>
+
+   <button type="button" class="btn btn-danger right" onClick={handlelogout} style={{display:"block" , float:"right"}}>Log Out</button>
  </div>
   )
 }

@@ -65,13 +65,13 @@ export default function Home() {
   }
   return (
     <div className="home-container">
-     <button type="button" class="btn btn-danger" onClick={handlelogout}>Log Out</button>
+     
     <header>
       <h1>Welcome to Our Site</h1>
-      <p>Find the best suitable milkman and paperboy in your area 
+      <p><b>Find the best suitable milkman and paperboy in your area</b> 
 </p>
       <p>Stay up-to-date on local events and happenings</p>
-      <p>Connect with your community and neighbors</p>
+      <p>Connect with your community and neighbour</p>
     </header>
     <div className="button-container">
       <button className="button milk-button" onClick={next1}>
@@ -98,6 +98,7 @@ export default function Home() {
       Update your dates for newspaper delivery
       </button> 
     </div>
+    <button type="button" class="btn btn-danger" onClick={handlelogout}>Log Out</button>
   </div>
 
   )
