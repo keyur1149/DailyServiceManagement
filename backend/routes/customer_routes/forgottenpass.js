@@ -1,9 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const twilio = require('twilio');
 const nodemailer = require("nodemailer");
 const Customer = require('../../model/customer')
 const Newsproviders = require('../../model/newsprovider.js')
 const Milkprovider = require('../../model/milkprovider');
+
+
+router.post('/forgotpasswordbyphonenumber', async(req, res) => {
+    try {
+        console.log(req.body.email);
+        const accountSid = "ACa7a5270a197262477d641faabf27c839";
+        const authToken = "1c0d3a0c2be8075f4b643da872322acc";
+
+        const client = new twilio(accountSid, authToken);
+        // client.messages
+        //     .create({ body: "Hello from keyur", from: "+15674004312", to: "+91" + req.body.email })
+        //     .then(message => console.log(message.sid));
+    } catch (err) {
+        console.log(err);
+    }
+});
 router.post('/forgotpassword', async(req, res) => {
     try {
         let transporter = nodemailer.createTransport({

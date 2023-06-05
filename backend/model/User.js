@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
+const bcrpty = require('bcryptjs')
+const jwt = require('jsonwebtoken');
+const Usertype = require('./usertype');
 
-const milkprovider = new mongoose.Schema({
-    milk_provider_id: {
+
+const user = new mongoose.User({
+    user_id: {
         type: String,
         required: true,
         unique: true
@@ -37,33 +41,29 @@ const milkprovider = new mongoose.Schema({
         type: String,
         required: true
     },
-    prize: {
-        type: Number,
-        required: true
-    },
-    morning: {
-        type: Boolean,
+    Usertype: {
+        type: Usertype,
         required: true,
-    },
-    morning_start: {
-        type: String,
-    },
-    morning_end: {
-        type: String,
-    },
-    evening: {
-        type: Boolean,
-        required: true,
-    },
-    evening_start: {
-        type: String,
-    },
-    evening_end: {
-        type: String,
     }
-})
+});
+
+
+user.pre('save', async function(next) {
+    console.log("enter schema");
+
+    if (this.isModified('password')) {
+        console.log("save password function in");
+        const salt = await bcrpty.genSalt(10);
+        const hash = await bcrpty.hash(this.password, salt)
+        this.password = hash;
+        this.password = bcrpty.hash(this.password, 10);
+    }
+    next();
+
+});
 
 
 
-const Milkprovider = mongoose.model('milkprovider', milkprovider);
-module.exports = Milkprovider;
+
+const User = mongoose.model('Usertype', user);
+module.exports = User;

@@ -10,7 +10,7 @@ export default function Forgotpass() {
     }
     const forgotpassword=async()=>{
         const otp=Math.floor(100000 + Math.random() * 900000)
-        const res=await fetch("/forgotpassword",{
+        const res=await fetch("/forgotpasswordbyphonenumber",{
             method:"Post",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export default function Forgotpass() {
   return (<div className='home-container border'>
     <div className="border border-dark" style={{borderWidth:"5px"}}>
     <div>
-      <h2> Email</h2> <input style={{height:"25px"}} type="email" name="email" value={email} onChange={handlechange}/>
+      <h2> Email</h2> <input style={{height:"25px"}} type="Number" name="email" value={email} onChange={handlechange}/>
     </div><br/> 
     <div><button onClick={forgotpassword} className='button milk-button'>forgot</button></div>
     <div>
