@@ -29,7 +29,6 @@ import Adminhome from './components/Admin/Adminhome';
 import Forgotpass from './components/forgotpassword/Forgotpass';
 import OTP from './components/forgotpassword/OTP';
 import Changepass from './components/forgotpassword/Changepass';
-import Allregistration from './NewComponents/allregistration/Allregistration';
 function App() {
   const [user,setdata]=useState(JSON.parse(localStorage.getItem('user')));
   const [milk,setmilk] = useState();
@@ -55,12 +54,11 @@ function App() {
         {/* <Customer/> */}
         <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Allregistration/>}/>
       
       
   
      {/* {milk && <Route  path="/" element={<Home/>} />} */}
-       {/* {milk && <Route path="/" element={<HomeForMilk/>}/>}
+       {milk && <Route path="/" element={<HomeForMilk/>}/>}
     {news && <Route path="/" element={<NewsHome/>}/>}
         {!user && <Route  path="/" element={<Cuslogin/>} />}
         {admin && <Route path='/' element={<Adminhome/>}/>}
@@ -84,7 +82,7 @@ function App() {
   <Route path='/forgotpassword' element={<Forgotpass/>}/>
   <Route path='/todaynotdeliverynews' element={<NewsDelivery/>}/>
   <Route path='/otp' element={<OTP/>}/>
-  <Route path="/changepass" element={<Changepass/>}/> */}
+  <Route path="/changepass" element={<Changepass/>}/>
   
     </Routes>
     </BrowserRouter>
